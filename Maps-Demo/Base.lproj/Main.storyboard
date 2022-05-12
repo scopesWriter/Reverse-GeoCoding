@@ -1,24 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wAB-K2-8hb">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Reverse-->
+        <scene sceneID="QvE-6M-KPA">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="ReverseGeocodingVC" id="OLH-Jj-ast" customClass="ReverseGeocodingVC" customModule="Maps_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B9n-Qt-cQ9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhP-xh-m2V">
+                                <rect key="frame" x="157.5" y="138" width="99" height="30"/>
+                                <state key="normal" title="Fetch Address"/>
+                                <connections>
+                                    <action selector="geocode:" destination="OLH-Jj-ast" eventType="touchUpInside" id="3o3-nm-MZ8"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9x6-Lc-Hpf">
+                                <rect key="frame" x="10" y="54" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
+                            </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="c7u-ia-BE7">
+                                <rect key="frame" x="197" y="143" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZoB-J3-XMs">
+                                <rect key="frame" x="10" y="176" width="394" height="16.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zlC-LI-kaF">
+                                <rect key="frame" x="10" y="96" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="L1f-vT-RBn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="L1f-vT-RBn" firstAttribute="trailing" secondItem="9x6-Lc-Hpf" secondAttribute="trailing" constant="10" id="2Qc-5I-D9p"/>
+                            <constraint firstItem="L1f-vT-RBn" firstAttribute="trailing" secondItem="ZoB-J3-XMs" secondAttribute="trailing" constant="10" id="44x-dL-4nq"/>
+                            <constraint firstItem="zlC-LI-kaF" firstAttribute="top" secondItem="9x6-Lc-Hpf" secondAttribute="bottom" constant="8" id="5Ln-Kz-TP8"/>
+                            <constraint firstItem="ZoB-J3-XMs" firstAttribute="top" secondItem="BhP-xh-m2V" secondAttribute="bottom" constant="8" id="8ha-EG-xhf"/>
+                            <constraint firstItem="L1f-vT-RBn" firstAttribute="trailing" secondItem="zlC-LI-kaF" secondAttribute="trailing" constant="10" id="EGY-Il-VbB"/>
+                            <constraint firstItem="BhP-xh-m2V" firstAttribute="top" secondItem="zlC-LI-kaF" secondAttribute="bottom" constant="8" id="FEI-si-Dq3"/>
+                            <constraint firstItem="BhP-xh-m2V" firstAttribute="centerX" secondItem="B9n-Qt-cQ9" secondAttribute="centerX" id="KUL-vN-Wem"/>
+                            <constraint firstItem="9x6-Lc-Hpf" firstAttribute="leading" secondItem="L1f-vT-RBn" secondAttribute="leading" constant="10" id="Mk1-G0-Puy"/>
+                            <constraint firstItem="c7u-ia-BE7" firstAttribute="centerX" secondItem="BhP-xh-m2V" secondAttribute="centerX" id="N6A-mM-55g"/>
+                            <constraint firstItem="zlC-LI-kaF" firstAttribute="leading" secondItem="L1f-vT-RBn" secondAttribute="leading" constant="10" id="lcP-bM-Ze9"/>
+                            <constraint firstItem="ZoB-J3-XMs" firstAttribute="leading" secondItem="B9n-Qt-cQ9" secondAttribute="leading" constant="10" id="lw1-4l-CVS"/>
+                            <constraint firstItem="9x6-Lc-Hpf" firstAttribute="top" secondItem="L1f-vT-RBn" secondAttribute="top" constant="10" id="pG0-mg-0q4"/>
+                            <constraint firstItem="c7u-ia-BE7" firstAttribute="centerY" secondItem="BhP-xh-m2V" secondAttribute="centerY" id="s0A-3I-Pxt"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Reverse" image="location.circle.fill" catalog="system" id="Rdh-hg-CSB"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="c7u-ia-BE7" id="Edl-Ck-e9P"/>
+                        <outlet property="geocodeButton" destination="BhP-xh-m2V" id="4UU-gB-QqH"/>
+                        <outlet property="latitudeTextField" destination="9x6-Lc-Hpf" id="G9J-Nk-3ve"/>
+                        <outlet property="locationLabel" destination="ZoB-J3-XMs" id="ABW-Jy-yYw"/>
+                        <outlet property="longitudeTextField" destination="zlC-LI-kaF" id="sBP-Mi-EBf"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1AM-Iy-ujl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1000" y="-42"/>
+        </scene>
+        <!--reverse map-->
+        <scene sceneID="kSg-2r-kgh">
+            <objects>
+                <viewController storyboardIdentifier="MapVC" id="KBl-dB-zBC" customClass="MapVC" customModule="Maps_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9U8-so-6g5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="peD-1l-SuC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="reverse map" image="map" catalog="system" id="aUK-jc-L0J"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VAp-4t-NO4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-697" y="-42"/>
+        </scene>
+        <!--Tab BarVC-->
+        <scene sceneID="xCX-TE-ZLa">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarVC" id="wAB-K2-8hb" customClass="TabBarVC" customModule="Maps_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hmT-xn-SIX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemPinkColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="KBl-dB-zBC" kind="relationship" relationship="viewControllers" id="qQg-lf-gq9"/>
+                        <segue destination="OLH-Jj-ast" kind="relationship" relationship="viewControllers" id="rwQ-fF-eMu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q9c-5K-MAF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168" y="-42"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="location.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="map" catalog="system" width="128" height="110"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

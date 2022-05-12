@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class ReverseGeocodingViewController: UIViewController {
+class ReverseGeocodingVC: UIViewController {
     
     // MARK: - Stored Properties
     @IBOutlet weak private var latitudeTextField: UITextField!
